@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Color = System.Drawing.Color;
+using Font = System.Drawing.Font;
 
 namespace FunnelCopy
 {
@@ -37,7 +42,7 @@ namespace FunnelCopy
             InitializeComponent();
             cornerButtonAdd.Enabled = false;
             Butpicture.Enabled = false;
-            
+            cornerButtonSave.Enabled = false;
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
@@ -82,8 +87,7 @@ namespace FunnelCopy
                 {
                     if (line.Length > 0)
                     {
-
-                        listCopies.Items.Add("  " + line.Trim());
+                         listCopies.Items.Add("     " + line.Trim()+"       ");
                     }
 
 
@@ -94,11 +98,8 @@ namespace FunnelCopy
 
         private void butHL_Click(object sender, EventArgs e)
         {
-
             setActiveNav(butHL, hlind);
             loadCopies("Headlines.txt");
-
-
         }
 
         private void butSHL_Click(object sender, EventArgs e)
@@ -173,24 +174,50 @@ namespace FunnelCopy
             }
             else
             {
-                richTextprocess.AppendText(copyText);
+                richTextprocess.AppendText(copyText.Trim());
                 richTextprocess.AppendText(Environment.NewLine);
             }
         }
 
         private void cornerButtonSave_Click(object sender, EventArgs e)
         {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\funnelcopy.docx";
+            if ((File.Exists(path)))
+            {
+                File.Delete(path);
 
+            }
+            string dataToInsert = richTextprocess.Text;
+            using (WordprocessingDocument doc = WordprocessingDocument.Create
+            (path, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
+            {
+                // Add a main document part.
+                MainDocumentPart mainPart = doc.AddMainDocumentPart();
+
+                // Create the document structure and add some text.
+                mainPart.Document = new Document();
+                Body body = mainPart.Document.AppendChild(new Body());
+                Paragraph para = body.AppendChild(new Paragraph());
+                Run run = para.AppendChild(new Run());
+
+                // String msg contains the text, "Hello, Word!"
+                run.AppendChild(new Text(dataToInsert   ));
+                doc.Close();
+            }
+            Process.Start("WINWORD.EXE", path);
         }
-
+      
         private void cornerButtonDelete_Click(object sender, EventArgs e)
         {
-
+            
+            richTextprocess.Clear();
         }
 
         private void cornerButtonCopyClip_Click(object sender, EventArgs e)
         {
-
+            string text = richTextprocess.Text;
+            Clipboard.SetText(text);
+            MessageBox.Show("Content copy to clipboard successfully");
         }
 
         private void cornerButtonExit_Click(object sender, EventArgs e)
@@ -211,7 +238,7 @@ namespace FunnelCopy
             butAbt.Font = new Font(butAbt.Font.Name, butAbt.Font.Size, FontStyle.Bold);
             butTutorial.Font = new Font(butTutorial.Font.Name, butTutorial.Font.Size, FontStyle.Regular);
             butCommunity.Font = new Font(butCommunity.Font.Name, butCommunity.Font.Size, FontStyle.Regular);
-            butGenLink.Font = new Font(butGenLink.Font.Name, butGenLink.Font.Size, FontStyle.Regular);
+            butGenLink.Font = new System.Drawing.Font(butGenLink.Font.Name, butGenLink.Font.Size, FontStyle.Regular);
         }
 
         private void butTutorial_Click(object sender, EventArgs e)
@@ -262,7 +289,7 @@ namespace FunnelCopy
             }
             else
             {
-                richTextprocess.AppendText(copyText);
+                richTextprocess.AppendText(copyText.Trim());
                 richTextprocess.AppendText(Environment.NewLine);
             }
         
@@ -272,12 +299,21 @@ namespace FunnelCopy
         {
             if (EditCopy.editText.Length > 0)
             {
-                richTextprocess.AppendText(EditCopy.editText);
+                richTextprocess.AppendText(EditCopy.editText.Trim());
                 richTextprocess.AppendText(Environment.NewLine);
             }
         
         }
+   
+        private void buttonAddnew_Click(object sender, EventArgs e)
+        {
+            AddMore more = new AddMore();
+            more.ShowDialog();
+        }
 
-
+        private void richTextprocess_TextChanged(object sender, EventArgs e)
+        {
+            cornerButtonSave.Enabled = true;
+        }
     }
 }

@@ -31,7 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelContainer = new System.Windows.Forms.Panel();
             this.Butpicture = new System.Windows.Forms.PictureBox();
+            this.cornerButtonAdd = new FunnelCopy.CornerButton();
+            this.funnyPanel2 = new FunnelCopy.FunnyPanel();
+            this.richTextprocess = new System.Windows.Forms.RichTextBox();
+            this.funnyPanel1 = new FunnelCopy.FunnyPanel();
+            this.listCopies = new System.Windows.Forms.ListBox();
+            this.cornerButtonExit = new FunnelCopy.CornerButton();
+            this.cornerButtonCopyClip = new FunnelCopy.CornerButton();
+            this.cornerButtonDelete = new FunnelCopy.CornerButton();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.buttonAddnew = new System.Windows.Forms.Button();
             this.butAbt = new System.Windows.Forms.Button();
             this.butCommunity = new System.Windows.Forms.Button();
             this.butTutorial = new System.Windows.Forms.Button();
@@ -51,6 +60,7 @@
             this.butCP = new System.Windows.Forms.Button();
             this.butHL = new System.Windows.Forms.Button();
             this.butSHL = new System.Windows.Forms.Button();
+            this.cornerButtonSave = new FunnelCopy.CornerButton();
             this.cconind = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.smind = new System.Windows.Forms.Panel();
@@ -63,25 +73,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.hlind = new System.Windows.Forms.Panel();
-            this.cornerButtonAdd = new FunnelCopy.CornerButton();
-            this.funnyPanel2 = new FunnelCopy.FunnyPanel();
-            this.richTextprocess = new System.Windows.Forms.RichTextBox();
-            this.funnyPanel1 = new FunnelCopy.FunnyPanel();
-            this.listCopies = new System.Windows.Forms.ListBox();
-            this.cornerButtonExit = new FunnelCopy.CornerButton();
-            this.cornerButtonCopyClip = new FunnelCopy.CornerButton();
-            this.cornerButtonDelete = new FunnelCopy.CornerButton();
-            this.cornerButtonSave = new FunnelCopy.CornerButton();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Butpicture)).BeginInit();
+            this.funnyPanel2.SuspendLayout();
+            this.funnyPanel1.SuspendLayout();
             this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.pwind.SuspendLayout();
             this.cconind.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.funnyPanel2.SuspendLayout();
-            this.funnyPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -113,9 +114,116 @@
             this.Butpicture.TabStop = false;
             this.Butpicture.Click += new System.EventHandler(this.Butpicture_Click);
             // 
+            // cornerButtonAdd
+            // 
+            this.cornerButtonAdd.BackColor = System.Drawing.Color.DodgerBlue;
+            this.cornerButtonAdd.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.cornerButtonAdd.FlatAppearance.BorderSize = 5;
+            this.cornerButtonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cornerButtonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.cornerButtonAdd.ForeColor = System.Drawing.Color.White;
+            this.cornerButtonAdd.Location = new System.Drawing.Point(428, 323);
+            this.cornerButtonAdd.Name = "cornerButtonAdd";
+            this.cornerButtonAdd.Size = new System.Drawing.Size(59, 41);
+            this.cornerButtonAdd.TabIndex = 9;
+            this.cornerButtonAdd.UseVisualStyleBackColor = false;
+            this.cornerButtonAdd.Click += new System.EventHandler(this.cornerButtonAdd_Click);
+            // 
+            // funnyPanel2
+            // 
+            this.funnyPanel2.Controls.Add(this.richTextprocess);
+            this.funnyPanel2.Location = new System.Drawing.Point(156, 360);
+            this.funnyPanel2.Name = "funnyPanel2";
+            this.funnyPanel2.Size = new System.Drawing.Size(588, 172);
+            this.funnyPanel2.TabIndex = 16;
+            // 
+            // richTextprocess
+            // 
+            this.richTextprocess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.richTextprocess.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextprocess.Location = new System.Drawing.Point(16, 20);
+            this.richTextprocess.Name = "richTextprocess";
+            this.richTextprocess.ReadOnly = true;
+            this.richTextprocess.Size = new System.Drawing.Size(556, 138);
+            this.richTextprocess.TabIndex = 4;
+            this.richTextprocess.Text = "";
+            this.richTextprocess.TextChanged += new System.EventHandler(this.richTextprocess_TextChanged);
+            // 
+            // funnyPanel1
+            // 
+            this.funnyPanel1.Controls.Add(this.listCopies);
+            this.funnyPanel1.Location = new System.Drawing.Point(156, 15);
+            this.funnyPanel1.Name = "funnyPanel1";
+            this.funnyPanel1.Size = new System.Drawing.Size(588, 305);
+            this.funnyPanel1.TabIndex = 15;
+            // 
+            // listCopies
+            // 
+            this.listCopies.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listCopies.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listCopies.FormattingEnabled = true;
+            this.listCopies.HorizontalScrollbar = true;
+            this.listCopies.ItemHeight = 16;
+            this.listCopies.Location = new System.Drawing.Point(17, 19);
+            this.listCopies.Margin = new System.Windows.Forms.Padding(5);
+            this.listCopies.Name = "listCopies";
+            this.listCopies.ScrollAlwaysVisible = true;
+            this.listCopies.Size = new System.Drawing.Size(556, 272);
+            this.listCopies.TabIndex = 13;
+            this.listCopies.SelectedIndexChanged += new System.EventHandler(this.listCopies_SelectedIndexChanged);
+            // 
+            // cornerButtonExit
+            // 
+            this.cornerButtonExit.BackColor = System.Drawing.Color.DodgerBlue;
+            this.cornerButtonExit.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.cornerButtonExit.FlatAppearance.BorderSize = 5;
+            this.cornerButtonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cornerButtonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.cornerButtonExit.ForeColor = System.Drawing.Color.White;
+            this.cornerButtonExit.Location = new System.Drawing.Point(621, 538);
+            this.cornerButtonExit.Name = "cornerButtonExit";
+            this.cornerButtonExit.Size = new System.Drawing.Size(125, 50);
+            this.cornerButtonExit.TabIndex = 12;
+            this.cornerButtonExit.Text = "EXIT";
+            this.cornerButtonExit.UseVisualStyleBackColor = false;
+            this.cornerButtonExit.Click += new System.EventHandler(this.cornerButtonExit_Click);
+            // 
+            // cornerButtonCopyClip
+            // 
+            this.cornerButtonCopyClip.BackColor = System.Drawing.Color.DodgerBlue;
+            this.cornerButtonCopyClip.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.cornerButtonCopyClip.FlatAppearance.BorderSize = 5;
+            this.cornerButtonCopyClip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cornerButtonCopyClip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.cornerButtonCopyClip.ForeColor = System.Drawing.Color.White;
+            this.cornerButtonCopyClip.Location = new System.Drawing.Point(340, 538);
+            this.cornerButtonCopyClip.Name = "cornerButtonCopyClip";
+            this.cornerButtonCopyClip.Size = new System.Drawing.Size(225, 50);
+            this.cornerButtonCopyClip.TabIndex = 11;
+            this.cornerButtonCopyClip.Text = "COPY CONTENT TO CLIPBOARD";
+            this.cornerButtonCopyClip.UseVisualStyleBackColor = false;
+            this.cornerButtonCopyClip.Click += new System.EventHandler(this.cornerButtonCopyClip_Click);
+            // 
+            // cornerButtonDelete
+            // 
+            this.cornerButtonDelete.BackColor = System.Drawing.Color.DodgerBlue;
+            this.cornerButtonDelete.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.cornerButtonDelete.FlatAppearance.BorderSize = 5;
+            this.cornerButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cornerButtonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.cornerButtonDelete.ForeColor = System.Drawing.Color.White;
+            this.cornerButtonDelete.Location = new System.Drawing.Point(156, 538);
+            this.cornerButtonDelete.Name = "cornerButtonDelete";
+            this.cornerButtonDelete.Size = new System.Drawing.Size(125, 50);
+            this.cornerButtonDelete.TabIndex = 9;
+            this.cornerButtonDelete.Text = "DELETE COPY";
+            this.cornerButtonDelete.UseVisualStyleBackColor = false;
+            this.cornerButtonDelete.Click += new System.EventHandler(this.cornerButtonDelete_Click);
+            // 
             // panel20
             // 
             this.panel20.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel20.Controls.Add(this.buttonAddnew);
             this.panel20.Controls.Add(this.butAbt);
             this.panel20.Controls.Add(this.butCommunity);
             this.panel20.Controls.Add(this.butTutorial);
@@ -127,6 +235,21 @@
             this.panel20.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel20.Size = new System.Drawing.Size(150, 600);
             this.panel20.TabIndex = 2;
+            // 
+            // buttonAddnew
+            // 
+            this.buttonAddnew.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonAddnew.FlatAppearance.BorderSize = 0;
+            this.buttonAddnew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddnew.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAddnew.Location = new System.Drawing.Point(20, 470);
+            this.buttonAddnew.Name = "buttonAddnew";
+            this.buttonAddnew.Size = new System.Drawing.Size(92, 48);
+            this.buttonAddnew.TabIndex = 13;
+            this.buttonAddnew.Text = "ADD NEW";
+            this.buttonAddnew.UseVisualStyleBackColor = false;
+            this.buttonAddnew.Click += new System.EventHandler(this.buttonAddnew_Click);
             // 
             // butAbt
             // 
@@ -430,6 +553,22 @@
             this.butSHL.UseVisualStyleBackColor = false;
             this.butSHL.Click += new System.EventHandler(this.butSHL_Click);
             // 
+            // cornerButtonSave
+            // 
+            this.cornerButtonSave.BackColor = System.Drawing.Color.DodgerBlue;
+            this.cornerButtonSave.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.cornerButtonSave.FlatAppearance.BorderSize = 5;
+            this.cornerButtonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cornerButtonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.cornerButtonSave.ForeColor = System.Drawing.Color.White;
+            this.cornerButtonSave.Location = new System.Drawing.Point(5, 521);
+            this.cornerButtonSave.Name = "cornerButtonSave";
+            this.cornerButtonSave.Size = new System.Drawing.Size(131, 67);
+            this.cornerButtonSave.TabIndex = 8;
+            this.cornerButtonSave.Text = "SAVE TO WORD";
+            this.cornerButtonSave.UseVisualStyleBackColor = false;
+            this.cornerButtonSave.Click += new System.EventHandler(this.cornerButtonSave_Click);
+            // 
             // cconind
             // 
             this.cconind.BackColor = System.Drawing.Color.Transparent;
@@ -532,125 +671,6 @@
             this.hlind.Size = new System.Drawing.Size(22, 32);
             this.hlind.TabIndex = 2;
             // 
-            // cornerButtonAdd
-            // 
-            this.cornerButtonAdd.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cornerButtonAdd.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.cornerButtonAdd.FlatAppearance.BorderSize = 5;
-            this.cornerButtonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cornerButtonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.cornerButtonAdd.ForeColor = System.Drawing.Color.White;
-            this.cornerButtonAdd.Location = new System.Drawing.Point(428, 323);
-            this.cornerButtonAdd.Name = "cornerButtonAdd";
-            this.cornerButtonAdd.Size = new System.Drawing.Size(59, 41);
-            this.cornerButtonAdd.TabIndex = 9;
-            this.cornerButtonAdd.UseVisualStyleBackColor = false;
-            this.cornerButtonAdd.Click += new System.EventHandler(this.cornerButtonAdd_Click);
-            // 
-            // funnyPanel2
-            // 
-            this.funnyPanel2.Controls.Add(this.richTextprocess);
-            this.funnyPanel2.Location = new System.Drawing.Point(156, 360);
-            this.funnyPanel2.Name = "funnyPanel2";
-            this.funnyPanel2.Size = new System.Drawing.Size(588, 172);
-            this.funnyPanel2.TabIndex = 16;
-            // 
-            // richTextprocess
-            // 
-            this.richTextprocess.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.richTextprocess.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextprocess.Location = new System.Drawing.Point(16, 20);
-            this.richTextprocess.Name = "richTextprocess";
-            this.richTextprocess.ReadOnly = true;
-            this.richTextprocess.Size = new System.Drawing.Size(556, 136);
-            this.richTextprocess.TabIndex = 4;
-            this.richTextprocess.Text = "";
-            // 
-            // funnyPanel1
-            // 
-            this.funnyPanel1.Controls.Add(this.listCopies);
-            this.funnyPanel1.Location = new System.Drawing.Point(156, 15);
-            this.funnyPanel1.Name = "funnyPanel1";
-            this.funnyPanel1.Size = new System.Drawing.Size(588, 305);
-            this.funnyPanel1.TabIndex = 15;
-            // 
-            // listCopies
-            // 
-            this.listCopies.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listCopies.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listCopies.FormattingEnabled = true;
-            this.listCopies.ItemHeight = 16;
-            this.listCopies.Location = new System.Drawing.Point(16, 26);
-            this.listCopies.Margin = new System.Windows.Forms.Padding(5);
-            this.listCopies.Name = "listCopies";
-            this.listCopies.Size = new System.Drawing.Size(556, 256);
-            this.listCopies.TabIndex = 13;
-            this.listCopies.SelectedIndexChanged += new System.EventHandler(this.listCopies_SelectedIndexChanged);
-            // 
-            // cornerButtonExit
-            // 
-            this.cornerButtonExit.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cornerButtonExit.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.cornerButtonExit.FlatAppearance.BorderSize = 5;
-            this.cornerButtonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cornerButtonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.cornerButtonExit.ForeColor = System.Drawing.Color.White;
-            this.cornerButtonExit.Location = new System.Drawing.Point(621, 538);
-            this.cornerButtonExit.Name = "cornerButtonExit";
-            this.cornerButtonExit.Size = new System.Drawing.Size(125, 50);
-            this.cornerButtonExit.TabIndex = 12;
-            this.cornerButtonExit.Text = "EXIT";
-            this.cornerButtonExit.UseVisualStyleBackColor = false;
-            this.cornerButtonExit.Click += new System.EventHandler(this.cornerButtonExit_Click);
-            // 
-            // cornerButtonCopyClip
-            // 
-            this.cornerButtonCopyClip.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cornerButtonCopyClip.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.cornerButtonCopyClip.FlatAppearance.BorderSize = 5;
-            this.cornerButtonCopyClip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cornerButtonCopyClip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.cornerButtonCopyClip.ForeColor = System.Drawing.Color.White;
-            this.cornerButtonCopyClip.Location = new System.Drawing.Point(340, 538);
-            this.cornerButtonCopyClip.Name = "cornerButtonCopyClip";
-            this.cornerButtonCopyClip.Size = new System.Drawing.Size(225, 50);
-            this.cornerButtonCopyClip.TabIndex = 11;
-            this.cornerButtonCopyClip.Text = "COPY CONTENT TO CLIPBOARD";
-            this.cornerButtonCopyClip.UseVisualStyleBackColor = false;
-            this.cornerButtonCopyClip.Click += new System.EventHandler(this.cornerButtonCopyClip_Click);
-            // 
-            // cornerButtonDelete
-            // 
-            this.cornerButtonDelete.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cornerButtonDelete.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.cornerButtonDelete.FlatAppearance.BorderSize = 5;
-            this.cornerButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cornerButtonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.cornerButtonDelete.ForeColor = System.Drawing.Color.White;
-            this.cornerButtonDelete.Location = new System.Drawing.Point(156, 538);
-            this.cornerButtonDelete.Name = "cornerButtonDelete";
-            this.cornerButtonDelete.Size = new System.Drawing.Size(125, 50);
-            this.cornerButtonDelete.TabIndex = 9;
-            this.cornerButtonDelete.Text = "DELETE COPY";
-            this.cornerButtonDelete.UseVisualStyleBackColor = false;
-            this.cornerButtonDelete.Click += new System.EventHandler(this.cornerButtonDelete_Click);
-            // 
-            // cornerButtonSave
-            // 
-            this.cornerButtonSave.BackColor = System.Drawing.Color.DodgerBlue;
-            this.cornerButtonSave.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.cornerButtonSave.FlatAppearance.BorderSize = 5;
-            this.cornerButtonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cornerButtonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.cornerButtonSave.ForeColor = System.Drawing.Color.White;
-            this.cornerButtonSave.Location = new System.Drawing.Point(5, 521);
-            this.cornerButtonSave.Name = "cornerButtonSave";
-            this.cornerButtonSave.Size = new System.Drawing.Size(131, 67);
-            this.cornerButtonSave.TabIndex = 8;
-            this.cornerButtonSave.Text = "SAVE TO WORD";
-            this.cornerButtonSave.UseVisualStyleBackColor = false;
-            this.cornerButtonSave.Click += new System.EventHandler(this.cornerButtonSave_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -665,6 +685,8 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Butpicture)).EndInit();
+            this.funnyPanel2.ResumeLayout(false);
+            this.funnyPanel1.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -672,8 +694,6 @@
             this.cconind.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.funnyPanel2.ResumeLayout(false);
-            this.funnyPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -723,6 +743,7 @@
         private System.Windows.Forms.ListBox listCopies;
         private FunnyPanel funnyPanel1;
         private FunnyPanel funnyPanel2;
+        private System.Windows.Forms.Button buttonAddnew;
     }
 }
 

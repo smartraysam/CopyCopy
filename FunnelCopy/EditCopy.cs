@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,37 +26,35 @@ namespace FunnelCopy
         {
             textBoxCopy.Text = Main.copyText;
         }
+        private string TruncatePercents(string input)
+        {
+            return Regex.Replace(input, @"_+", "____");
+        }
+
 
         private void cornerButtonOk_Click(object sender, EventArgs e)
         {
+            var underscore = "____";
             string edit = textBoxCopy.Text.ToString();
-            string[] stringsplit = edit.Split(new string[] { "_____" }, StringSplitOptions.None);
+            edit = TruncatePercents(edit);
+        
+            StringBuilder stringBuilder = new StringBuilder(edit);
             var lines = copyReplaceword.Text.Split('\n');
-            StringBuilder stringBuilder = new StringBuilder();
+            int count = 0;
             foreach (var item in lines)
             {
-                Debug.WriteLine(item);
+                if (item.Length > 0)
+                {
+                    if (stringBuilder.ToString().Contains(underscore))
+                    {
+                        int startIndex = stringBuilder.ToString().IndexOf(underscore);
+                        stringBuilder.Replace(underscore, lines[count], startIndex, underscore.Length);
+                        count++;
+                    }
+              
+                }
+              
             }
-            foreach (var item in stringsplit)
-            {
-                Debug.WriteLine(item);
-            }
-
-            //for (int i = 0; i < stringsplit.Length; i++)
-            //{
-            //    Debug.WriteLine(stringsplit[i]);
-            //    stringBuilder.Append(stringsplit[i]);
-            //    if (i <= lines.Length)
-            //    {
-            //        stringBuilder.Append(" " + lines[i] + " ");
-            //    }
-            //    else
-            //    {
-            //        stringBuilder.Append(" _____ ");
-            //    }
-
-
-            //}
             editText = stringBuilder.ToString();
             this.Close();
         }
